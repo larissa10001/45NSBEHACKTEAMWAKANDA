@@ -1,0 +1,69 @@
+/************************** MAIN STYLING **************************************/
+#background{
+  background-color: #FCF141 !important;
+  width: 90vw;
+}
+header{
+  height: 15vh;
+  background-color: #FCF141 !important;
+}
+body{
+  height: 15vh;
+  background-color: #FCF141 !important;
+}
+footer{
+  height: 3vh;
+  width: 90vw;
+  background-color: #FCF141 !important;
+}
+
+/*************************** TEXT STYLING *************************************/
+#title{
+  color: #333333;
+	align: center;
+	font-size: 6vh;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+#tagline{
+  opacity: 0.5;
+  color: #333333;
+  padding-left: 45%;
+  font-size: 2px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/********************************* HOME PAGE **********************************/
+#home{
+  padding-top: 20%;
+  padding-left: 0%;
+  width: 100vh;
+}
+
+/*search box*/
+#search{
+  padding-left: 0% !important;
+  width:75vw;
+}
+#searchBox{
+  width: 100vw !important;
+  align-content: center;
+}
+#searchIcon{
+  padding-left: 0px;
+  background-color: none !important;
+}
+#searchIcon1{
+  border: none;
+  background-color: #FCF141 !important;
+}
+
+/********************************* IMAGES **********************************/
+#globePhoto{
+  width: 55vw;
+  height: 30vh;
+  opacity: 0.2;
+  padding-left: 35%;
+  padding-top: 1%;
+  padding-bottom: 10px;
+}
