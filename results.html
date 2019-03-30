@@ -1,3 +1,4 @@
+<html>
 <head>
   <link rel="stylesheet" type="text/css" href="pagestyle.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -34,7 +35,113 @@
     </div>
 
     <div class="container-fluid" id="crimeReport">
+      <?php
+      // function to geocode address, it will return false if unable to geocode address
+      function geocode($address){
+          // url encode the address
+          $address = urlencode($address);
+          // google map geocode api url
+          $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key=AIzaSyDRxKRhy9S55UnU-SjBlWAZ4KH7gyzDPow";
+          // get the json response
+          $resp_json = file_get_contents($url);
+          // decode the json
+          $resp = json_decode($resp_json, true);
+          // response status will be 'OK', if able to geocode given address
+          if($resp['status']=='OK'){
+              // get the important data
+              $lati = isset($resp['results'][0]['geometry']['location']['lat']) ? $resp['results'][0]['geometry']['location']['lat'] : "";
+              $longi = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : "";
+              $formatted_address = isset($resp['results'][0]['formatted_address']) ? $resp['results'][0]['formatted_address'] : "";
+              // verify if data is complete
+              if($lati && $longi && $formatted_address){
+                  // put the data in the array
+                  $data_arr = array();
+                  array_push(
+                      $data_arr,
+                          $lati,
+                          $longi,
+                          $formatted_address
+                      );
+                  return $data_arr;
+              }
+              else{
+                  return false;
+              }
+          }
+          else{
+              echo "<strong>ERROR: {$resp['status']}</strong>";
+              return false;
+          }
+      }
+      ?>
 
+      <?php
+      if($_POST){
+        //get latitude, longitude and formatted address
+        $data_arr = geocode($_POST['address']);
+        // if able to geocode the address
+
+        if($data_arr){
+          $radius = 200 ;
+          $latitude = $data_arr[0];
+          $longitude = $data_arr[1];
+          $formatted_address = $data_arr[2];
+
+          echo"the longitude is :\n".$longitude;
+          echo"the latitude is :".$latitude;
+
+        if($latitude == 37.7799963 && $longitude == -122.3938519){
+            $latitude = 37.7798;
+            $longitude = -122.3939;
+            $str = file_get_contents("http://opendata.mybluemix.net/crimes?lat={$latitude}&lon={$longitude}&radius={$radius}");
+            //echo 'the string 2 is' .$str;
+            $json = json_decode($str, true); // decode the JSON into an associative array
+             /*echo '<pre>' . print_r($json, true) . '</pre>' */
+            /*$counter =0;
+            foreach($json as $file) {
+                $counter = $counter +1;
+            $str = file_get_contents('http://opendata.mybluemix.net/crimes?lat=37.7798&lon=-122.3939&radius=200');
+            }
+            echo "the count number is:" .$counter;
+            */
+            for ($x = 0; $x < count($json['features']); $x++) {
+                $source = $json['features'][$x]['properties']['source'];
+                $type = $json['features'][$x]['properties']['type'];
+                echo "<br> source :".$source;
+                echo "<br> type : ".$type;
+                echo PHP_EOL;
+            }
+    /* if($latitude == 51.5188596 && $longitude == -0.0976114){
+        $latitude = 51.5167;
+                 $longitude = -0.0957;
+            $str = file_get_contents("http://opendata.mybluemix.net/crimes?lat={$latitude}&lon={$longitude}&radius={$radius}");
+            //echo 'the string 2 is' .$str;
+            $json = json_decode($str, true); // decode the JSON into an associative array
+             /*echo '<pre>' . print_r($json, true) . '</pre>' */
+            /*$counter =0;
+            foreach($json as $file) {+++++++++++++++++++++++++++++++++++++++++----------------------------------
+                $counter = $counter +1;
+            $str = file_get_contents('http://opendata.mybluemix.net/crimes?lat=37.7798&lon=-122.3939&radius=200');
+            }
+            echo "the count number is:" .$counter;
+            */
+               /* for ($x = 0; $x < count($json['features']); $x++) {
+                    $source = $json['features'][$x]['properties']['source'];
+                    $type = $json['features'][$x]['properties']['type'];
+                    echo "<br> source :".$source;
+                    echo "<br> type : ".$type;
+                    echo PHP_EOL;
+                }
+      }*/
+    }
+    ?>
+    <?php
+    // if unable to geocode the address
+    }else{
+        echo "No map found.";
+    }
+}
+?>
 
     </div>
 
@@ -59,3 +166,4 @@
     <h5>Search | Decide | Arrive</h5>
   </div>
 </footer>
+</html>
