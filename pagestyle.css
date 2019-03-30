@@ -59,11 +59,14 @@ footer{
 	font-size: 6vh;
   font-family: 'Source Sans Pro', sans-serif;
 }
-
+#intro > h2{
+  padding-top: 0px;
+  font-size: 18px;
+}
 /********************************* HOME PAGE **********************************/
 #home{
-  padding-top: 20%;
-  padding-left: 0%;
+  padding-top: 15%;
+  margin-left: 200px;
   width: 90vh;
 }
 
