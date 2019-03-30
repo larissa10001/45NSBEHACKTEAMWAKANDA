@@ -39,3 +39,9 @@ $(function(){
     }
   }
 });
+
+function say_hi() {
+    var address = document.getElementById('searchInput').value;
+
+    var html = address;
+}
