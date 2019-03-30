@@ -16,11 +16,29 @@ footer{
   width: 90vw;
   background-color: #FCF141 !important;
 }
-
+#navigation{
+	height: 5vh;
+	background-color: #ffffff;
+	width: 100vw;
+	padding-bottom: 10px;
+	margin-left: 0px;
+	border: none;
+}
+#homebutton{
+  border: none;
+  background-color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-color: #333333;
+	text-align: center;
+}
+#navSearch{
+  padding-top:20px;
+  width:80vw;
+}
 /*************************** TEXT STYLING *************************************/
 #title{
   color: #333333;
-	align: center;
+	text-align: left;
 	font-size: 6vh;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -33,6 +51,12 @@ footer{
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.btn-default{
+  color: #333333;
+	text-align: left;
+	font-size: 6vh;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 /********************************* HOME PAGE **********************************/
 #home{
   padding-top: 20%;
@@ -55,15 +79,72 @@ footer{
 }
 #searchIcon1{
   border: none;
-  background-color: #FCF141 !important;
+  background-color: none !important;
+}
+#searchIcon2{
+  border: none;
+  padding-left: 0px;
+  background-color: #fff !important;
 }
 
-/********************************* IMAGES **********************************/
+/********** IMAGES ************/
 #globePhoto{
   width: 55vw;
   height: 30vh;
-  opacity: 0.2;
+  opacity: 0.6;
   padding-left: 35%;
   padding-top: 1%;
   padding-bottom: 10px;
+}
+#logo{
+  width:100px;
+  height:100px;
+  align: left;
+}
+/********************************* RESULTS PAGE *******************************/
+#twitterFeed{
+  width:5vw;
+  height: 70vh;
+  align: right;
+  background-color: #fff;
+}
+#resultsBodyPage{
+  height: 80vh;
+  width:100vw !important;
+  padding: 0%;
+  background-color: #fff !important;
+}
+#searchedAddress{
+  height: 20vh;
+  width:100vw;
+  background-color: #ffffff;
+}
+#crimeReport{
+  width:100vw;
+  height: 20vh;
+  background-color: #ffffff;
+}
+#resources{
+  height:20vh;
+  width:100vw;
+  background-color: #ffffff;
+}
+#leftside{
+  width:75vw;
+  height: 80vh;
+  padding: 0px;
+  background-color: #fff !important;
+}
+#rightside{
+  padding: 0px;
+  height: 80vh;
+  width:20vw;
+  background-color: #fff !important;
+}
+#resulttagline{
+  text-align: center;
+  color: #333333;
+  font-size: 2px;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #fff;
 }
