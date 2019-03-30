@@ -89,13 +89,14 @@ if($_POST){
           $latitude = $data_arr[0];
           $longitude = $data_arr[1];
           $formatted_address = $data_arr[2];
-                echo"the longitude is :\n".$longitude;
+				echo"You entered: " .$_POST['address'];
+                echo"<br>the longitude is :\n".$longitude;
                 echo"the latitude is :".$latitude;
-                $latitude == 37.7799963;
-                $longitude == -122.3938519;
-                if($latitude == 37.7799963 && $longitude == -122.3938519){
-                    $latitude = 37.7798;
-                    $longitude = -122.3939;
+                //$latitude == 37.7799963;
+                //$longitude == -122.3938519;
+                //if($latitude == 37.7799963 && $longitude == -122.3938519){
+                    //$latitude = 37.7798;
+                    //$longitude = -122.3939;
 					$requestURL = "http://opendata.mybluemix.net/crimes?lat={$latitude}&lon={$longitude}&radius={$radius}";
                     //echo $requestURL + '<br>';
 					$str = file_get_contents("http://opendata.mybluemix.net/crimes?lat={$latitude}&lon={$longitude}&radius={$radius}");
@@ -109,14 +110,44 @@ if($_POST){
                     }
                     echo "the count number is:" .$counter;
                     */
-                            for ($x = 0; $x < count($json['features']); $x++) {
-                                $source = $json['features'][$x]['properties']['source'];
-                                $type = $json['features'][$x]['properties']['type'];
-                                echo "<br> source :".$source;
-                                echo "<br> type : ".$type;
-                                echo PHP_EOL;
-                            }
+                           $countSexOf = 0;
+            $countDrugs = 0;
+            $countOtherTheft = 0;
+            $countFeature = 0;
+          $TheftFromPerson = 0;
+          $countPublicOrder = 0;
+          
+          
+            for ($x = 0; $x < count($json['features']); $x++) {
+                $source = $json['features'][$x]['properties']['source'];
+                $type = $json['features'][$x]['properties']['type'];
+                //echo "<br> source :".$source;
+                //echo "<br> type : ".$type;
+                echo PHP_EOL;
+                if($type == "Drugs"){
+					//echo"inside of drug count";
+                  $countDrugs = $countDrugs +1;
+                }else if($type == "Other theft"){
+                  $countOtherTheft = $countOtherTheft +1;
+                }else if($type == "Feature"){
+                  $countFeature = $countFeature +1;
+                }else if($type == "Public order"){
+                  $countPublicOrder = $countPublicOrder +1;
+                }else if($type == "Theft from the person"){
+                  $TheftFromPerson = $TheftFromPerson +1;
+                }else if($type == "Violence and sexual offences"){
+                  $countSexOf = $countSexOf +1;
                 }
+            }
+			
+			echo "<br> The number of Drugs reports are : ".$countDrugs;
+            echo "<br> The number of other thefts are : ".$countOtherTheft;
+            echo "<br> The number of Feature are : ".$countFeature;
+            echo "<br> The number of Public order reports are : ".$countPublicOrder;
+            echo "<br> The number of Drugs Theft from other people: ".$TheftFromPerson;
+            echo "<br> The number of Violence and sexual offences : ".$countSexOf;
+                           
+                //}
       }
       else{
         echo "No map found.";
