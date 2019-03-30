@@ -5,7 +5,7 @@
 
 ROLES
 
-UX Design: Tonehe
+UX Design: Toneke
 Tech Leads: Larissa, Makanjuola, Kazeem
 Product Manager: Sharon
 
