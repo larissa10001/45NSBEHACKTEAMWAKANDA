@@ -57,6 +57,7 @@ footer{
 	font-size: 6vh;
   font-family: 'Source Sans Pro', sans-serif;
 }
+
 /********************************* HOME PAGE **********************************/
 #home{
   padding-top: 20%;
@@ -118,16 +119,22 @@ footer{
   height: 20vh;
   width:100vw;
   background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  border-color: #000;
+  border-radius: 3px;
 }
 #crimeReport{
   width:100vw;
   height: 20vh;
   background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
 }
 #resources{
   height:20vh;
   width:100vw;
   background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
 }
 #leftside{
   width:75vw;
