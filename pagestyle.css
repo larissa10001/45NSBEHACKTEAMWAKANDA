@@ -33,7 +33,9 @@ footer{
 }
 #navSearch{
   padding-top:20px;
-  width:80vw;
+  padding-left:20px;
+  width:40vw;
+  align:right;
 }
 /*************************** TEXT STYLING *************************************/
 #title{
@@ -62,7 +64,7 @@ footer{
 #home{
   padding-top: 20%;
   padding-left: 0%;
-  width: 100vh;
+  width: 90vh;
 }
 
 /*search box*/
@@ -123,6 +125,7 @@ footer{
   font-size: 10px;
   border-color: #000;
   border-radius: 3px;
+
 }
 #crimeReport{
   width:100vw;
@@ -137,9 +140,9 @@ footer{
   font-family: 'Roboto', sans-serif;
 }
 #leftside{
-  width:75vw;
-  height: 80vh;
-  padding: 0px;
+  width: 70vw;
+  height: 60vh;
+  padding-left: 20px;
   background-color: #fff !important;
 }
 #rightside{
