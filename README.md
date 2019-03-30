@@ -11,9 +11,16 @@ Product Manager: Sharon
 
 WHAT 
 
-	We are building a website where users can search the safety of their city or a city they are traveling to. 
-
+	We are building a website for college students to search the safety of varous spring break locations. This website can also be useful for imigrants or people moving within the country. 
+	
 WHY
+
+PROBLEMS
+
+Set up mile stones:
+What is the simplest product we can come up with and what is our biggest goal. 
+
+ 
 
 TOOLS
 
